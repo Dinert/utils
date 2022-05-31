@@ -94,7 +94,7 @@ const password = (value: string) => {
 }
 
 /**
- * 判断对象
+ * 判断是否对象
  * @param value object
  * @returns boolean
  */
@@ -103,7 +103,7 @@ const isObject = (value: Object): boolean => {
 }
 
 /**
- * 判断数组
+ * 判断是否数组
  * @param value object
  * @returns boolean
  */
