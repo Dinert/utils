@@ -46,7 +46,7 @@ const debounce = (fn: () => {}, delay: number = 0, immediate: boolean = false) =
  * @param type 
  * @returns string
  */
-const type = (type) => {
+export const type = (type) => {
   return Object.prototype.toString
     .call(type)
     .split(' ')[1]
@@ -61,7 +61,7 @@ const type = (type) => {
  * @param value 必须是对象
  * @returns void
  */
-export const storage = (name = 'session', key: string, value: object): void => {
+const storage = (name = 'session', key: string, value: object): void => {
   if (key === 'remove') {
     return window[name].removeItem(value)
   } else if (key === 'clear') {
@@ -73,10 +73,28 @@ export const storage = (name = 'session', key: string, value: object): void => {
   }
 }
 
+/**
+ * 获取唯一ID
+ * @returns String
+ */
+const getUuid = () => {
+  var s = []
+  var hexDigits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  for (var i = 0; i < 36; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1)
+  }
+  s[14] = '4'
+  s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1)
+  s[8] = s[13] = s[18] = s[23] = '-'
+  let uuid = s.join('')
+  return uuid
+}
+
 
 export default {
   devPro,
   debounce,
   type,
-  storage
+  storage,
+  getUuid
 }
