@@ -4,6 +4,8 @@ import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
+import replace from 'rollup-plugin-replace'
+const env = process.env.NODE_ENV
 import pkg from './package.json'
 
 export default {
@@ -34,6 +36,9 @@ export default {
     }),
     typescript(),
     livereload(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    }),
     serve({
       port: 3003,
       contentBase: ''

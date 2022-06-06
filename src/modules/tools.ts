@@ -6,13 +6,11 @@
  * @param ProValue => 生产环境返回的参数
  */
 const devPro = (devValue: any, ProValue: any) => {
-  if(process && process.env && process.env.NODE_ENV) {
     if(process.env.NODE_ENV === 'development') {
       return typeof devValue === 'function' ? devValue() : devValue
     }else {
       return typeof ProValue === 'function' ? ProValue() : ProValue
     }
-  }
 }
 
 /** 

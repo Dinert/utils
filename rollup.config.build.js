@@ -3,7 +3,9 @@ import typescript from '@rollup/plugin-typescript'
 import {terser} from 'rollup-plugin-terser'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
+import replace from 'rollup-plugin-replace'
 import pkg from './package.json'
+const env = process.env.NODE_ENV
 
 export default {
   input: 'src/main.ts',
@@ -32,6 +34,9 @@ export default {
     resolve(),
     babel({
       exclude: 'node_modules',
+    }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(env)
     }),
     typescript(),
     terser()
