@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@main
 
       - name: Install yarn
-        run: nmp i -g yarn
+        run: npm i -g yarn
 
       - name: 安装依赖
         run: yarn
