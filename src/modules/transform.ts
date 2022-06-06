@@ -49,7 +49,7 @@ const degToCompass = (num: number): string => {
   }
   return directionText
 }
-
+  
 export default {
   degToCompass
 }
