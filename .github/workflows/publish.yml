@@ -4,7 +4,6 @@ on:
   push:
     branches: [ main ]
 
-
 jobs:
   publish:
     # 用来指定这个任务在什么操作系统上跑(服务器是GitHub免费提供的)
