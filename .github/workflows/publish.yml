@@ -7,27 +7,26 @@ on:
 
 jobs:
   publish:
+    # 用来指定这个任务在什么操作系统上跑(服务器是GitHub免费提供的)
     runs-on: ubuntu-latest
 
-    name: 'publish npm'
-
-    environment: npm
-
-    steps:
+    # 指出publish的任务步骤
+    steps: 
       - uses: actions/checkout@main
 
-      - name: 安装yarn
-        run: npm i -g yarn
+      - name: Install yarn
+        run: nmp i -g yarn
 
-      - name: Install and Build 
-        run: |
-          yarn install
-          yarn build
+      - name: 安装依赖
+        run: yarn
+
+      - name: 打包库
+        run: yarn build
 
       - name: 'Publish to the npm registry'
-        uses: primer/publish@3.0.0
+      - uses: Dinert/utils@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # 跟前面步骤中的 NPM_AUTH_TOKEN 保持一致
         with:
-          default_branch: 'main'
+          default_branch: 'master'
