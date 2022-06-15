@@ -2,8 +2,9 @@
 
 /**
  * 开发、生产环境的区分函数
- * @param devValue => 开发环境返回的参数
- * @param ProValue => 生产环境返回的参数
+ * @param { any } 开发的值
+ * @param { any } 生产的值
+ * @returns { any } 返回
  */
 const devPro = (devValue: any, ProValue: any) => {
     if(process.env.NODE_ENV === 'development') {
@@ -15,9 +16,10 @@ const devPro = (devValue: any, ProValue: any) => {
 
 /** 
  * 防抖
- * @param fn 事件触发的操作
- * @param delay 多少毫秒内连续触发事件，不会执行
- * @param immediate 返回函数的执⾏结果。
+ * @param { Function } 事件触发的操作
+ * @param {number} 多少毫秒内连续触发事件，不会执行
+ * @param {boolean} 返回函数的执⾏结果。
+ * @returns {*}
 */
 const debounce = (fn: () => {}, delay: number = 0, immediate: boolean = false) => {
   let timer
@@ -41,10 +43,10 @@ const debounce = (fn: () => {}, delay: number = 0, immediate: boolean = false) =
 
 /**
  * 判断类型
- * @param type 
- * @returns string
+ * @param {any} 
+ * @returns {string}
  */
-export const type = (type) => {
+export const type = (type: any) => {
   return Object.prototype.toString
     .call(type)
     .split(' ')[1]
@@ -54,12 +56,12 @@ export const type = (type) => {
 
 /**
  * 浏览器的各种存储
- * @param name 存储名：localStorage、sessionStorage
- * @param key 键名
- * @param value 必须是对象
- * @returns void
+ * @param {string} 存储名：localStorage、sessionStorage
+ * @param {string} 键名
+ * @param {object} 必须是对象
+ * @returns {void}
  */
-const storage = (name = 'session', key: string, value: object): void => {
+const storage = (name: string = 'session', key: string, value: object): void => {
   if (key === 'remove') {
     return window[name].removeItem(value)
   } else if (key === 'clear') {
@@ -73,7 +75,7 @@ const storage = (name = 'session', key: string, value: object): void => {
 
 /**
  * 获取唯一ID
- * @returns String
+ * @returns {String}
  */
 const getUuid = () => {
   var s = []

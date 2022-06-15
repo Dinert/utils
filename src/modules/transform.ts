@@ -1,7 +1,7 @@
 /**
  * 风向转文字
- * @param num number 
- * @returns string
+ * @param {num} 
+ * @returns {string}
  */
 const degToCompass = (num: number): string => {
   let newNum = 0
