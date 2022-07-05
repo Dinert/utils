@@ -49,7 +49,15 @@ const degToCompass = (num: number): string => {
   }
   return directionText
 }
+
+/**
+ * 小驼峰转下划线
+ */
+const underline = str => {
+  return str.replace(/\B([A-Z])/g, '_$1').toLowerCase()
+}
   
 export default {
-  degToCompass
+  degToCompass,
+  underline
 }

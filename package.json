@@ -1,6 +1,6 @@
 {
   "name": "@dinert/utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "dinert的工具库",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",

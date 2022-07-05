@@ -10,12 +10,12 @@ export default {
   input: 'src/main.ts',
   output: [
     {
-      file: pkg.main,
+      file: pkg.module,
       format: 'esm',  // 将软件包保存为 ES 模块文件
       name: 'dinertUtils'
     }, 
     {
-      file: pkg.module,
+      file: pkg.main,
       format: 'cjs',
       name: 'dinertUtils',
     },
