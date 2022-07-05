@@ -52,8 +52,10 @@ const degToCompass = (num: number): string => {
 
 /**
  * 小驼峰转下划线
+ * @param {str}
+ * @returns {string}
  */
-const underline = str => {
+const underline = (str: string) => {
   return str.replace(/\B([A-Z])/g, '_$1').toLowerCase()
 }
   
