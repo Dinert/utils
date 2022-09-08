@@ -56,6 +56,7 @@ const degToCompass = (num: number): string => {
  * @returns {string}
  */
 const underline = (str: string) => {
+  console.log('小驼峰转下划线')
   return str.replace(/\B([A-Z])/g, '_$1').toLowerCase()
 }
   
